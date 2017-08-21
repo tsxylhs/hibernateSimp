@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+	<hibernate-configuration>
+	
+	<session-factory>
+	<!-- 配置链接那个数据库，怎么连接 -->
+	
+	<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+	<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/hb_03</property>
+	<property name="hibernate.connection.username">root</property>
+	<property name="hibernate.connection.password">mysql</property>
+	
+	<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+	<!-- hibernate 其他信息 -->
+	<property name="hibernate.show_sql">true</property>
+	<property name="hibernate.format_sql">true</property>
+	<!-- 设置我的hibernate执行的时候，是否要创建数据库对象：例如表格  
+	创建的方式：create：执行一次hibernate我就重新创建数据库对象。  
+	update：如果之前已经有这个表格了，那么把这个表格里面的结构更新成我这次要求的样子。如果之前没有这个表格，那么我就重新创建一个。 -->
+	<property name="hibernate.hbm2ddl.auto">create</property>
+	
+	<!--  让session和本地线程绑定，确保我们的session对象唯一 -->
+	<property name ="hibernate.current_session_context_class">thread</property> 
+	
+	
+	
+	<!--  引入我的注解实体 -->
+	<mapping  class="po.Student"/>
+	
+	
+	
+	</session-factory>
+	
+	
+	
+	
+	</hibernate-configuration>
+	
+	
+	
+	
+	
